@@ -3,23 +3,15 @@ import { Link as LinkComponent } from '@reach/router';
 
 export const Container = styled.div`
     width: 100%;
-    height: 300px;
+    min-width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 20px;
     overflow: hidden;
+    @media only screen and (max-width: 360px) {
+        font-size: 32px;
+    }
 `
-
-export const Image = styled.img`
-    width: 300px;
-    min-width: 300px;
-    height: 300px;
-    min-height: 300px;
-    margin-right: 20px;
-    padding: 10px;
-`
-
 export const TextContainer = styled.div`
     display: flex;
     flex-direction: column;

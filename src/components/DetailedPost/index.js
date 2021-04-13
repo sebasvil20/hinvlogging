@@ -8,7 +8,10 @@ export const DetailedPost = () => {
   const [post, setPost] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const BASE_URL = 'https://hinvlogging-api-heroku.herokuapp.com'
+  const BASE_URL = 'http://localhost:1337' 
+  
+  //https://hinvlogging-api-heroku.herokuapp.com
+  //http://localhost:1337
 
   const params = useParams()
   useEffect(() => {

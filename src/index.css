@@ -12,10 +12,16 @@ body {
   box-sizing: border-box;
 }
 .postList {
-  width: 80%;
+  width: 50%;
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 900px) {
+  .postList {
+    width: 85%;
+  }
 }
 
 blockquote {
