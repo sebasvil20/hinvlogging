@@ -1,27 +1,16 @@
 import React from 'react'
-import { Card } from 'antd';
-import { EditOutlined, FullscreenOutlined } from '@ant-design/icons';
-import { Link } from '@reach/router';
+import { Container, Image, TextContainer, Button, Description, Title, AutorDate } from './styles'
 
-
-export const PostCard = ({id, title, description, cover}) => {
+export const PostCard = ({ id, title, description, cover, userDate }) => {
   return (
-    <Card
-      style={{ width: 500 }}
-      cover={
-        <img
-          alt='example'
-          className='postImage'
-          src={cover}
-        />
-      }
-      actions={[
-        <FullscreenOutlined key='open' />,
-        <EditOutlined key='edit' />,
-      ]}
-    >
-      <Link to={`/detail/${id}`}>{title}</Link>
-      <h4>{description}</h4>
-    </Card>
+    <Container>
+      <Image src={cover}/>
+      <TextContainer>
+        <Title>{title}</Title>
+        <AutorDate> {userDate} </AutorDate>
+        <Description>{description}</Description>
+        <Button to={`/detail/${id}`}>VIEW FULL POST</Button>
+      </TextContainer>
+    </Container>
   )
 }
