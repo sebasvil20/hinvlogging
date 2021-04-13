@@ -8,7 +8,7 @@ export const PostList = ({category}) => {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const BASE_URL = 'http://localhost:1337'
+  const BASE_URL = 'https://hinvlogging-api-heroku.herokuapp.com'
 
   const FETCHURL = category ? `${BASE_URL}/categories/${category}` : `${BASE_URL}/posts` 
 
