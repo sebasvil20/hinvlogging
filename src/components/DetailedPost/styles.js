@@ -15,8 +15,12 @@ export const Title = styled.h1`
   color: #3c3b3b;
   margin-top: 20px;
 
-  @media only screen and (max-width: 360px) {
-    font-size: 32px;
+  @media only screen and (max-width: 560px) {
+    font-size: 22px;
+  }
+  
+  @media only screen and (max-width: 960px) {
+    font-size: 42px;
   }
 `
 
