@@ -14,6 +14,10 @@ export const Input = styled.input`
   height: 40px;
   padding: 10px;
   margin: 15px 0px 15px;
+
+  @media only screen and (max-width: 900px){
+    width: 60%;
+  }
 `
 
 export const PostListContainer = styled.div`
