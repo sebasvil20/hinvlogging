@@ -5,8 +5,9 @@ import { NothingHere } from '../NothingHere'
 import { LoaderComponent } from '../Loader'
 
 import { Input, Container, PostListContainer } from './styles'
+import { Helmet } from 'react-helmet'
 
-export const PostList = ({ category }) => {
+export const PostList = ({ category, categoryTitle }) => {
   const [posts, setPosts] = useState([])
   const [postsCopy, setPostscopy] = useState([])
   const [loading, setLoading] = useState(true)
@@ -47,30 +48,40 @@ export const PostList = ({ category }) => {
   }, [search])
 
   return (
-    <Container>
-      <Input
-        type='text'
-        value={search}
-        placeholder='Search for something cool...'
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <PostListContainer>
-        {loading ? (
-          <LoaderComponent />
-        ) : posts.length !== 0 ? (
-          posts.map((post) => (
-            <PostCard
-              key={post.id}
-              slug={post.slug}
-              title={post.title}
-              description={post.description}
-              userDate={`${post.releaseDate} ${post.admin_user.firstname} ${post.admin_user.lastname}`}
-            />
-          ))
-        ) : (
-          <NothingHere />
-        )}
-      </PostListContainer>
-    </Container>
+    <>
+      {category ? (
+        <Helmet>
+          <title>{`${categoryTitle} | Hinvloggin'`}</title>
+          <meta name='description' content={`You'll find posts about ${categoryTitle}'`} />
+        </Helmet>
+      ) : (
+        <> </>
+      )}
+      <Container>
+        <Input
+          type='text'
+          value={search}
+          placeholder='Search for something cool...'
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <PostListContainer>
+          {loading ? (
+            <LoaderComponent />
+          ) : posts.length !== 0 ? (
+            posts.map((post) => (
+              <PostCard
+                key={post.id}
+                slug={post.slug}
+                title={post.title}
+                description={post.description}
+                userDate={`${post.releaseDate} ${post.admin_user.firstname} ${post.admin_user.lastname}`}
+              />
+            ))
+          ) : (
+            <NothingHere />
+          )}
+        </PostListContainer>
+      </Container>
+    </>
   )
 }

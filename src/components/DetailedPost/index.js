@@ -4,6 +4,7 @@ import { useParams } from '@reach/router'
 import { Title, Description, Content, Container, AuthorDate } from './styles'
 import ReactMarkdown from 'react-markdown'
 import { LoaderComponent } from '../Loader'
+import { Helmet } from 'react-helmet'
 
 export const DetailedPost = () => {
   const [post, setPost] = useState([])
@@ -26,6 +27,11 @@ export const DetailedPost = () => {
   }, [FETCHURL])
 
   return (
+    <>
+    <Helmet>
+          <title>{`${post.title} | Hinvloggin'`}</title>
+          <meta name='description' content={`${post.description}'`} />
+        </Helmet>
     <Container>
       {loading ? (
         <LoaderComponent />
@@ -39,6 +45,6 @@ export const DetailedPost = () => {
           </Content>
         </>
       )}
-    </Container>
+    </Container></>
   )
 }

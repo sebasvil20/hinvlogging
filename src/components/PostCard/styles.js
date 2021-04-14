@@ -38,7 +38,7 @@ export const Button = styled(LinkComponent)`
   transition: all 0.2s ease;
   &:hover {
     background-color: #989b9e;
-    font-size: 26px;
+    font-size: 24px;
   }
 
   @media only screen and (max-width: 900px) {
