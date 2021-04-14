@@ -61,7 +61,7 @@ export const PostList = ({ category }) => {
           posts.map((post) => (
             <PostCard
               key={post.id}
-              id={post.id}
+              slug={post.slug}
               title={post.title}
               description={post.description}
               userDate={`${post.releaseDate} ${post.admin_user.firstname} ${post.admin_user.lastname}`}

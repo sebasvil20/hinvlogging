@@ -16,7 +16,7 @@ function App() {
         <PostList path='/lifestyle' category={'6075cbe514ec542bb8a7f22f'} />
         <PostList path='/inspiration' category={'6075cbfb14ec542bb8a7f230'} />
         <PostList path='/stories' category={'6075cc0b14ec542bb8a7f231'} />
-        <DetailedPost path='/detail/:postId' />
+        <DetailedPost path='/detail/:postSlug' />
       </Router>
     </div>
   )

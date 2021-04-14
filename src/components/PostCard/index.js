@@ -10,7 +10,7 @@ import {
   Line,
 } from './styles'
 
-export const PostCard = ({ id, title, description, userDate }) => {
+export const PostCard = ({ slug, title, description, userDate }) => {
   const [show, element] = useNearScreen()
 
   return (
@@ -25,7 +25,7 @@ export const PostCard = ({ id, title, description, userDate }) => {
                 ? `${description.slice(0, 150)} ...`
                 : description}
             </Description>
-            <Button to={`/detail/${id}`}>VIEW FULL POST</Button>
+            <Button to={`/detail/${slug}`}>VIEW FULL POST</Button>
             <Line />
           </TextContainer>
         </>

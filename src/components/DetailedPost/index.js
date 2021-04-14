@@ -14,12 +14,12 @@ export const DetailedPost = () => {
   //https://hinvlogging-api-heroku.herokuapp.com
   //http://localhost:1337
 
-  const FETCHURL = `${BASE_URL}/posts/${params.postId}`
+  const FETCHURL = `${BASE_URL}/posts?slug=${params.postSlug}`
 
   useEffect(() => {
     async function getData() {
       const result = await axios(FETCHURL)
-      setPost(result.data)
+      setPost(result.data[0])
       setLoading(false)
     }
     getData()
