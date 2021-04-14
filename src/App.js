@@ -3,7 +3,7 @@ import React from 'react'
 import { DetailedPost } from './components/DetailedPost'
 import { PageLayout } from './components/PageLayout'
 import { PostList } from './components/PostList'
-import {NotFound} from './components/NotFound'
+import { NotFound } from './components/NotFound'
 
 function App() {
   return (

@@ -14,7 +14,7 @@ export const PostCard = ({ id, title, description, userDate }) => {
 
   return (
     <CardContainer ref={element}>
-      {show  && ( 
+      {show && (
         <TextContainer>
           <Title>{title}</Title>
           <AutorDate> {userDate} </AutorDate>

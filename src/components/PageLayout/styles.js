@@ -15,7 +15,7 @@ export const Title = styled(LinkComponent)`
     font-size: 32px;
   }
 
-  @media only screen and (max-width: 880px){
+  @media only screen and (max-width: 880px) {
     font-size: 58px;
   }
 `
@@ -30,9 +30,9 @@ export const Subtitle = styled.h2`
     font-size: 20px;
   }
 
-@media only screen and (max-width: 880px){
-  font-size: 32px;
-}
+  @media only screen and (max-width: 880px) {
+    font-size: 32px;
+  }
 `
 
 export const Hero = styled.div`
@@ -57,7 +57,7 @@ export const Nav = styled.div`
     padding: 10px;
   }
 
-  @media only screen and (max-width: 1600px){
+  @media only screen and (max-width: 1600px) {
     width: 70%;
     align-items: space-between;
   }
@@ -81,8 +81,7 @@ export const Link = styled(LinkComponent)`
     width: 200px;
     text-align: center;
   }
-  @media only screen and (max-width: 860px){
-    
+  @media only screen and (max-width: 860px) {
     margin-bottom: 7px;
   }
 `
