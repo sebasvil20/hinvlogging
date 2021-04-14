@@ -8,6 +8,7 @@ export const FourOFour = styled.span`
 export const NotFoundText = styled.h1`
     color: #F55656;
     margin-top: 20px;
+    text-align: center;
 `
 export const GoBackButton = styled(LinkComponent)`
     width: 30%;
@@ -16,12 +17,15 @@ export const GoBackButton = styled(LinkComponent)`
     text-align: center;
     padding: 10px;
     text-decoration: none;
-    margin-top: 20px;
+    margin: 20px 0px 40px;
     transition: all .2s ease;
     
     &:hover{
         background-color: #F55656;
     }
+  @media only screen and (max-width: 660px){
+    width: 50%;
+  }
 
 `
 
