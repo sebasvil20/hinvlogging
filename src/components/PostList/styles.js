@@ -18,6 +18,9 @@ export const Input = styled.input`
   @media only screen and (max-width: 900px){
     width: 60%;
   }
+  @media only screen and (max-width: 1200px){
+    width: 50%;
+  }
 `
 
 export const PostListContainer = styled.div`
@@ -26,7 +29,16 @@ export const PostListContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media only screen and (max-width: 360px){
+    width: 95%;
+  }
+
   @media only screen and (max-width: 900px) {
     width: 85%;
   }
+
+  @media only screen and (max-width: 1200px){
+    width: 70%;
+  }
+
 `

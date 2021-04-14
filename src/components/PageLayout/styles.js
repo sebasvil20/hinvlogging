@@ -11,8 +11,17 @@ export const Title = styled(LinkComponent)`
   &:hover {
     color: #7c7c7c;
   }
+
+  @media only screen and (max-width: 320px) {
+    font-size: 32px;
+  }
+
   @media only screen and (max-width: 360px) {
     font-size: 32px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding: 50px 0px 0px;
   }
 
   @media only screen and (max-width: 880px) {
@@ -25,6 +34,10 @@ export const Subtitle = styled.h2`
   font-weight: bold;
   font-size: 48px;
   padding: 0 20px 50px;
+
+  @media only screen and (max-width: 320px) {
+    font-size: 20px;
+  }
 
   @media only screen and (max-width: 360px) {
     font-size: 20px;
@@ -76,11 +89,18 @@ export const Link = styled(LinkComponent)`
     color: #7c7c7c;
   }
 
+  @media only screen and (max-width: 320px) {
+    margin-bottom: 2px;
+    font-size: 18px;
+    padding: 5px;
+  }
+
   @media only screen and (max-width: 360px) {
     padding: 10px;
     width: 200px;
     text-align: center;
   }
+
   @media only screen and (max-width: 860px) {
     margin-bottom: 7px;
   }

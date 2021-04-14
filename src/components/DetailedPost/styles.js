@@ -18,7 +18,7 @@ export const Title = styled.h1`
   @media only screen and (max-width: 560px) {
     font-size: 22px;
   }
-  
+
   @media only screen and (max-width: 960px) {
     font-size: 42px;
   }

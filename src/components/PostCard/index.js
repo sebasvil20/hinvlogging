@@ -7,6 +7,7 @@ import {
   Description,
   Title,
   AutorDate,
+  Line,
 } from './styles'
 
 export const PostCard = ({ id, title, description, userDate }) => {
@@ -15,12 +16,19 @@ export const PostCard = ({ id, title, description, userDate }) => {
   return (
     <CardContainer ref={element}>
       {show && (
-        <TextContainer>
-          <Title>{title}</Title>
-          <AutorDate> {userDate} </AutorDate>
-          <Description>{description}</Description>
-          <Button to={`/detail/${id}`}>VIEW FULL POST</Button>
-        </TextContainer>
+        <>
+          <TextContainer>
+            <Title>{title}</Title>
+            <AutorDate> {userDate} </AutorDate>
+            <Description>
+              {description.length >= 150
+                ? `${description.slice(0, 150)} ...`
+                : description}
+            </Description>
+            <Button to={`/detail/${id}`}>VIEW FULL POST</Button>
+            <Line />
+          </TextContainer>
+        </>
       )}
     </CardContainer>
   )
