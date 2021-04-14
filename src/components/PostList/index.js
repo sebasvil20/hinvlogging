@@ -4,48 +4,70 @@ import axios from 'axios'
 import { NothingHere } from '../NothingHere'
 import { LoaderComponent } from '../Loader'
 
-export const PostList = ({category}) => {
+import {Input, Container} from './styles'
+
+export const PostList = ({ category }) => {
   const [posts, setPosts] = useState([])
+  const [postsCopy, setPostscopy] = useState([])
   const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
-  const BASE_URL = 'https://hinvlogging-api-heroku.herokuapp.com'
+  const BASE_URL = 'http://localhost:1337'
 
-  
   //https://hinvlogging-api-heroku.herokuapp.com
   //http://localhost:1337
 
-  const FETCHURL = category ? `${BASE_URL}/categories/${category}` : `${BASE_URL}/posts` 
+  const FETCHURL = category
+    ? `${BASE_URL}/categories/${category}`
+    : `${BASE_URL}/posts`
+
+    
+  async function getData() {
+    const result = await axios(FETCHURL)
+    const postArray = category ? result.data.posts : result.data 
+    setPosts(postArray.reverse())
+    setPostscopy(postArray.reverse())
+    setLoading(false)
+  }
 
   useEffect(() => {
-    async function getData() {
-      const result = await axios(FETCHURL)
-      category ? setPosts(result.data.posts) : setPosts(result.data)
-      setLoading(false);
+    if(search === ""){
+      getData()
+    } 
+    else{
+      setLoading(true)
+      const filter = async() =>{
+        const filtered = await postsCopy.filter(post => {
+          return post.title.toLowerCase().includes(search.toLowerCase())
+        })
+        setPosts(filtered);
+        setLoading(false);
+      }
+      filter();   
     }
-    getData()
-  }, [FETCHURL, category])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[search])
 
   return (
-    <div className='postList'>
-      {
-          loading ? 
+    <Container>
+      <Input type="text" value={search} placeholder="Search for something cool..." onChange = {(e) => setSearch(e.target.value)} />
+      <div className='postList'>
+        {loading ? (
           <LoaderComponent />
-          :(
-            posts.length !== 0 ? 
+        ) : posts.length !== 0 ? (
           posts.map((post) => (
             <PostCard
               key={post.id}
               id={post.id}
-              cover={post.cover.name}
               title={post.title}
               description={post.description}
-              userDate = {`${post.releaseDate} ${post.admin_user.firstname} ${post.admin_user.lastname}`}
+              userDate={`${post.releaseDate} ${post.admin_user.firstname} ${post.admin_user.lastname}`}
             />
           ))
-          :
+        ) : (
           <NothingHere />
-          )
-      }
-    </div>
+        )}
+      </div>
+    </Container>
   )
 }

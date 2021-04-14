@@ -9,18 +9,18 @@ export const DetailedPost = () => {
   const [post, setPost] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const BASE_URL = 'https://hinvlogging-api-heroku.herokuapp.com' 
-  
+  const params = useParams()
+  const BASE_URL = 'http://localhost:1337'
   //https://hinvlogging-api-heroku.herokuapp.com
   //http://localhost:1337
 
-  const params = useParams()
   const FETCHURL = `${BASE_URL}/posts/${params.postId}`
+
   useEffect(() => {
     async function getData() {
       const result = await axios(FETCHURL)
       setPost(result.data)
-      setLoading(false);
+      setLoading(false)
     }
     getData()
   }, [FETCHURL])
@@ -29,7 +29,7 @@ export const DetailedPost = () => {
     <Container>
       {loading ? (
         <LoaderComponent />
-      ) :  (
+      ) : (
         <>
           <Title>{post.title}</Title>
           <Description>{post.description}</Description>
