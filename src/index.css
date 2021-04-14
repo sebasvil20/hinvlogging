@@ -12,18 +12,6 @@ body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
-.postList {
-  width: 50%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-@media only screen and (max-width: 900px) {
-  .postList {
-    width: 85%;
-  }
-}
 
 blockquote {
   color: #797979;
@@ -31,6 +19,7 @@ blockquote {
   display: flex;
   margin: 30px 0px 20px;
 }
+
 blockquote p {
   padding: 10px;
   font-size: 18px;

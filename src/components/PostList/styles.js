@@ -16,3 +16,17 @@ export const Input = styled.input`
     margin: 15px 0px 15px;
 
 `
+
+export const PostListContainer = styled.div`
+
+width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (max-width: 900px) {
+        width: 85%;
+    }
+`
+
+  

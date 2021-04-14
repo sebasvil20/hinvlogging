@@ -4,7 +4,7 @@ import axios from 'axios'
 import { NothingHere } from '../NothingHere'
 import { LoaderComponent } from '../Loader'
 
-import {Input, Container} from './styles'
+import { Input, Container, PostListContainer } from './styles'
 
 export const PostList = ({ category }) => {
   const [posts, setPosts] = useState([])
@@ -21,37 +21,40 @@ export const PostList = ({ category }) => {
     ? `${BASE_URL}/categories/${category}`
     : `${BASE_URL}/posts`
 
-    
   async function getData() {
     const result = await axios(FETCHURL)
-    const postArray = category ? result.data.posts : result.data 
-    setPosts(postArray.reverse())
-    setPostscopy(postArray.reverse())
+    const postArray = (category ? result.data.posts : result.data).reverse()
+    setPosts(postArray)
+    setPostscopy(postArray)
     setLoading(false)
   }
 
   useEffect(() => {
-    if(search === ""){
+    if (search === '') {
       getData()
-    } 
-    else{
+    } else {
       setLoading(true)
-      const filter = async() =>{
-        const filtered = await postsCopy.filter(post => {
+      const filter = async () => {
+        const filtered = await postsCopy.filter((post) => {
           return post.title.toLowerCase().includes(search.toLowerCase())
         })
-        setPosts(filtered);
-        setLoading(false);
+        setPosts(filtered)
+        setLoading(false)
       }
-      filter();   
+      filter()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[search])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search])
 
   return (
     <Container>
-      <Input type="text" value={search} placeholder="Search for something cool..." onChange = {(e) => setSearch(e.target.value)} />
-      <div className='postList'>
+      <Input
+        type='text'
+        value={search}
+        placeholder='Search for something cool...'
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <PostListContainer>
         {loading ? (
           <LoaderComponent />
         ) : posts.length !== 0 ? (
@@ -67,7 +70,7 @@ export const PostList = ({ category }) => {
         ) : (
           <NothingHere />
         )}
-      </div>
+      </PostListContainer>
     </Container>
   )
 }
