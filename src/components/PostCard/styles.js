@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Link as LinkComponent } from '@reach/router';
+import { fadeIn } from '../../styles/animation'
 
-export const Container = styled.div`
+
+export const CardContainer = styled.article`
     width: 100%;
     min-width: 100%;
     display: flex;
@@ -11,8 +13,10 @@ export const Container = styled.div`
     @media only screen and (max-width: 360px) {
         font-size: 32px;
     }
+    min-height: 200px;
 `
 export const TextContainer = styled.div`
+    ${fadeIn()}
     display: flex;
     flex-direction: column;
 `

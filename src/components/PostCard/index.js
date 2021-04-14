@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNearScreen } from '../../hooks/useNearScreen'
 import {
-  Container,
+  CardContainer,
   TextContainer,
   Button,
   Description,
@@ -13,7 +13,7 @@ export const PostCard = ({ id, title, description, userDate }) => {
   const [show, element] = useNearScreen()
 
   return (
-    <Container ref={element}>
+    <CardContainer ref={element}>
       {show  && ( 
         <TextContainer>
           <Title>{title}</Title>
@@ -22,6 +22,6 @@ export const PostCard = ({ id, title, description, userDate }) => {
           <Button to={`/detail/${id}`}>VIEW FULL POST</Button>
         </TextContainer>
       )}
-    </Container>
+    </CardContainer>
   )
 }
