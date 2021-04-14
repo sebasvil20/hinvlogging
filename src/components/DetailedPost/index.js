@@ -3,43 +3,39 @@ import axios from 'axios'
 import { useParams } from '@reach/router'
 import { Title, Description, Content, Container } from './styles'
 import ReactMarkdown from 'react-markdown'
+import { LoaderComponent } from '../Loader'
 
 export const DetailedPost = () => {
   const [post, setPost] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const BASE_URL = 'http://localhost:1337' 
+  const BASE_URL = 'https://hinvlogging-api-heroku.herokuapp.com' 
   
   //https://hinvlogging-api-heroku.herokuapp.com
   //http://localhost:1337
 
   const params = useParams()
+  const FETCHURL = `${BASE_URL}/posts/${params.postId}`
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/posts/${params.postId}`)
-      .then((response) => {
-        setPost(response.data)
-      })
-      .then(setLoading(false))
-  }, [params.postId])
+    async function getData() {
+      const result = await axios(FETCHURL)
+      setPost(result.data)
+      setLoading(false);
+    }
+    getData()
+  }, [FETCHURL])
 
   return (
     <Container>
       {loading ? (
-        <h1>Loading</h1>
-      ) : post.cover ? (
+        <LoaderComponent />
+      ) :  (
         <>
           <Title>{post.title}</Title>
           <Description>{post.description}</Description>
           <Content>
             <ReactMarkdown source={post.content} />
           </Content>
-        </>
-      ) : (
-        <>
-          <Title>{post.title}</Title>
-          <Description>{post.description}</Description>
-          <ReactMarkdown source={post.content} />
         </>
       )}
     </Container>
