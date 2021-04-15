@@ -43,11 +43,20 @@ p h2,
 p h3 {
   margin: 20px 0px 20px;
   padding: 20px 0px 20px;
+  line-height: normal;
 }
 
 pre {
   background-color: #eeeeee;
   padding: 10px 15px;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+code {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 ul {
