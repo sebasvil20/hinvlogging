@@ -48,7 +48,7 @@ p h3 {
 
 pre {
   background-color: #eeeeee;
-  padding: 10px 15px;
+  padding: 10px 15px 10px 15px;
   width: 100%;
   overflow-x: scroll;
 }
