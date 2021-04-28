@@ -74,6 +74,7 @@ export const PostList = ({ category, categoryTitle }) => {
                 slug={post.slug}
                 title={post.title}
                 description={post.description}
+                date = {post.releaseDate}
                 userDate={`${post.releaseDate} ${post.admin_user.firstname} ${post.admin_user.lastname}`}
               />
             ))
